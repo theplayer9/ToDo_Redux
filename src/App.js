@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { AddTodoAction } from './actions/TodoActions';
+import { AddTodoAction, RemoveTodoActions } from './actions/TodoActions';
 
 function App() {
   const [todo, setTodo] = useState();
@@ -12,6 +12,10 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(AddTodoAction(todo));
+  }
+
+  const removeHandler=(t)=>{
+    dispatch(RemoveTodoActions(t));
   }
 
 
@@ -54,6 +58,7 @@ function App() {
                     color: "white",
                     backgroundColor: "orangered",
                   }}
+                  onClick={()=>removeHandler(t)}
                 > Delete</button>
               </li>
             ))
