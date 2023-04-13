@@ -1,9 +1,11 @@
 import {createStore, combineReducers, applyMiddleware} from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
+import { TodoReducer } from "./reducers/TodoReducers";
 
 const reducer = combineReducers({
     //this contains all the reducers managing different state slices
+    Todo: TodoReducer,
 })
 
 const initialState = {};
