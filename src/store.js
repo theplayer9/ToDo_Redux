@@ -1,4 +1,5 @@
 import {createStore, combineReducers, applyMiddleware} from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
 const reducer = combineReducers({
@@ -9,10 +10,11 @@ const initialState = {};
 
 const middleware = [thunk];
 
+// holds the complete state tree of your app. 
 const store = createStore(
     reducer,
     initialState,
-    applyMiddleware(...middleware)
+    composeWithDevTools(applyMiddleware(...middleware))
 )
 
 export default store ;
